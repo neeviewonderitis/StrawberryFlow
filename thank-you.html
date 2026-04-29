@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Strawberryflow Labs - Received</title>
+    <link rel="icon" type="image/png" href="assets/sfl_logo.png">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#ff9da1",
+                        "secondary-fixed-dim": "#ffb3b4",
+                        "secondary": "#ffb3b4",
+                        "on-primary-fixed": "#1c1b1c",
+                        "surface-container-high": "#2a2a2c",
+                        "surface-container-lowest": "#0e0e10",
+                        "surface-bright": "#39393b",
+                        "on-tertiary-container": "#797a78",
+                        "on-surface": "#e4e2e4",
+                        "on-primary": "#313031",
+                        "surface": "#131315",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#ffdada",
+                        "on-surface-variant": "#c7c6ca",
+                        "inverse-surface": "#e4e2e4",
+                        "on-tertiary": "#2f312f",
+                        "on-secondary-fixed-variant": "#881c2b",
+                        "on-primary-container": "#7b797a",
+                        "surface-variant": "#353437",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#474647",
+                        "on-background": "#e4e2e4",
+                        "surface-container-low": "#1b1b1d",
+                        "on-tertiary-fixed": "#1a1c1b",
+                        "outline": "#919094",
+                        "primary-fixed": "#e5e2e3",
+                        "secondary-container": "#8b1e2d",
+                        "on-secondary": "#680017",
+                        "background": "#131315",
+                        "on-tertiary-fixed-variant": "#454745",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#0a0c0b",
+                        "surface-dim": "#131315",
+                        "tertiary-fixed-dim": "#c6c7c4",
+                        "surface-tint": "#c8c6c7",
+                        "surface-container-highest": "#353437",
+                        "tertiary": "#c6c7c4",
+                        "on-secondary-fixed": "#40000b",
+                        "inverse-primary": "#5f5e5f",
+                        "surface-container": "#1f1f21",
+                        "tertiary-fixed": "#e2e3e0",
+                        "inverse-on-surface": "#303032",
+                        "outline-variant": "#46464a",
+                        "primary": "#c8c6c7",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#c8c6c7",
+                        "primary-container": "#0b0b0c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-right": "4vw",
+                        "stack-md": "48px",
+                        "stack-lg": "96px",
+                        "stack-sm": "16px",
+                        "margin-left": "12vw",
+                        "unit": "8px",
+                        "gutter": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+
+    <link rel="stylesheet" href="assets/lux-style.css">
+</head>
+<body class="bg-primary-container text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-secondary-container selection:text-on-background">
+    <!-- Custom Surgical Cursor -->
+    <div id="cursor-circle" class="custom-cursor"></div>
+    <div id="cursor-dot" class="custom-cursor-dot"></div>
+<nav class="docked full-width top-0 border-b border-zinc-800 bg-black dark:bg-[#0B0B0C] flex justify-between items-center w-full pl-[12vw] pr-8 h-20">
+<a href="index.html" class="flex items-center gap-4 group">
+        <img src="assets/sfl_logo.png" alt="SFL Logo" class="h-10 w-auto brightness-110 group-hover:scale-105 transition-transform duration-300 lux-float">
+        <div class="font-['Playfair_Display'] text-2xl tracking-[2px] text-zinc-50 font-black">STRAWBERRYFLOW</div>
+    </a>
+<div class="hidden md:flex gap-8">
+<a href="clinic.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">CLINICS</a>
+<a href="methodology.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">METHODOLOGY</a>
+<a href="infrastructure.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">INFRASTRUCTURE</a>
+<a href="demo.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">DEMO</a>
+<a href="enquiry.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">ENQUIRY</a>
+</div>
+<a href="access-portal.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-50 dark:text-zinc-100 nav-link px-4 py-2 border border-zinc-800 premium-btn" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">ACCESS PORTAL</a>
+</nav>
+<main class="flex-grow flex flex-col pl-margin-left pr-margin-right pt-stack-lg pb-stack-lg" data-lux-reveal data-lux-type="fade-up">
+<div class="grid grid-cols-12 gap-gutter max-w-[1400px]">
+<!-- Empty Left Column for Heavy Asymmetry -->
+<div class="col-span-12 md:col-span-3"></div>
+<!-- Content Area -->
+<div class="col-span-12 md:col-span-7 flex flex-col gap-stack-lg">
+<!-- Primary Message Block -->
+<section class="flex flex-col gap-stack-md" data-lux-reveal data-lux-type="fade-up">
+<span class="font-label-sm text-label-sm text-outline tracking-widest uppercase">RECEIVED</span>
+<h1 data-lux-reveal data-lux-type="fade-up" class="font-headline-xl text-headline-xl text-on-surface leading-none max-w-[15ch]">We have your enquiry.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant opacity-70 max-w-[45ch]" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">
+                        A member of the Strawberryflow team will review your submission and respond within 24 hours. We do not send automated replies — you will hear from a person.
+                    </p>
+</section>
+<!-- Separation Line -->
+<hr class="border-t border-surface-variant w-full"/>
+<!-- Secondary Action Block -->
+<section class="flex flex-col gap-stack-sm items-start" data-lux-reveal data-lux-type="fade-up">
+<span class="font-label-sm text-label-sm text-outline tracking-widest uppercase mb-4">MOVE FASTER</span>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-70 max-w-[45ch] mb-4" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">
+                        Clinics that complete our intake application are prioritised for scheduling.
+                    </p>
+<a class="bg-secondary-container text-on-surface font-label-sm text-label-sm tracking-widest uppercase px-8 py-4 inline-flex items-center gap-4 hover:bg-secondary transition-colors duration-200 premium-btn" href="intake-application.html">
+                        COMPLETE YOUR APPLICATION
+                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</section>
+</div>
+</div>
+</main>
+<footer class="docked full-width border-t border-zinc-800 bg-black dark:bg-[#0B0B0C] flex flex-col md:flex-row justify-between items-center w-full pl-[12vw] pr-12 py-16 gap-8">
+<div class="font-['Playfair_Display'] italic text-zinc-200 text-sm">STRAWBERRYFLOW LABS. SURGICAL PRECISION IN CLINICAL MANAGEMENT.
+    </div>
+<div class="flex gap-8">
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">IMPRINT</a>
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">PRIVACY</a>
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">TERMS OF EXCLUSIVITY</a>
+</div>
+<div class="flex flex-col items-center md:items-end gap-2">
+        <img src="assets/sfl_logo.png" alt="SFL Logo" class="h-12 w-auto mb-2 opacity-80 hover:opacity-100 transition-opacity lux-float">
+        <div class="font-['Playfair_Display'] italic text-zinc-200 text-xl font-bold">StrawberryFlow</div>
+    </div>
+</footer>
+    <script src="assets/lux-anim.js"></script>
+</body>
+</html>

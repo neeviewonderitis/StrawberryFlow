@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Strawberryflow Labs - Portal Access</title>
+    <link rel="icon" type="image/png" href="assets/sfl_logo.png">
+    <link rel="stylesheet" href="assets/lux-style.css">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Fantasy Portal Styles */
+        @keyframes portal-glow {
+            0%, 100% { box-shadow: 0 0 30px 10px rgba(139, 30, 45, 0.15), inset 0 0 20px rgba(139, 30, 45, 0.05); }
+            50% { box-shadow: 0 0 50px 20px rgba(139, 30, 45, 0.3), inset 0 0 30px rgba(139, 30, 45, 0.15); }
+        }
+
+        .fantasy-portal-bg {
+            position: relative;
+            z-index: 1;
+            animation: portal-glow 6s infinite;
+        }
+        .fantasy-portal-bg::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(139,30,45,0.1) 0%, rgba(11,11,12,0) 60%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes sway-bounce {
+            0% { transform: translate(0px, 0px) rotate(-10deg) scale(1); }
+            25% { transform: translate(10px, -15px) rotate(-5deg) scale(1.05); }
+            50% { transform: translate(20px, 0px) rotate(0deg) scale(1); }
+            75% { transform: translate(10px, 15px) rotate(-5deg) scale(0.95); }
+            100% { transform: translate(0px, 0px) rotate(-10deg) scale(1); }
+        }
+
+        .portal-logo-anim {
+            animation: sway-bounce 8s ease-in-out infinite;
+            transform-origin: center;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#474647",
+                        "on-surface-variant": "#c7c6ca",
+                        "on-secondary-fixed": "#40000b",
+                        "tertiary": "#c6c7c4",
+                        "primary-fixed": "#e5e2e3",
+                        "tertiary-fixed-dim": "#c6c7c4",
+                        "on-tertiary-fixed": "#1a1c1b",
+                        "on-primary": "#313031",
+                        "surface-tint": "#c8c6c7",
+                        "on-primary-fixed": "#1c1b1c",
+                        "on-primary-container": "#7b797a",
+                        "outline": "#919094",
+                        "secondary-fixed-dim": "#ffb3b4",
+                        "surface-container-lowest": "#0e0e10",
+                        "surface-container-low": "#1b1b1d",
+                        "on-tertiary-container": "#797a78",
+                        "primary": "#c8c6c7",
+                        "tertiary-container": "#0a0c0b",
+                        "secondary": "#ffb3b4",
+                        "on-error": "#690005",
+                        "surface-variant": "#353437",
+                        "on-background": "#e4e2e4",
+                        "primary-fixed-dim": "#c8c6c7",
+                        "surface-container-highest": "#353437",
+                        "inverse-on-surface": "#303032",
+                        "on-tertiary-fixed-variant": "#454745",
+                        "on-secondary-container": "#ff9da1",
+                        "surface-container": "#1f1f21",
+                        "tertiary-fixed": "#e2e3e0",
+                        "surface-dim": "#131315",
+                        "surface-bright": "#39393b",
+                        "error": "#ffb4ab",
+                        "background": "#131315",
+                        "on-surface": "#e4e2e4",
+                        "inverse-primary": "#5f5e5f",
+                        "on-tertiary": "#2f312f",
+                        "primary-container": "#0b0b0c",
+                        "surface": "#131315",
+                        "inverse-surface": "#e4e2e4",
+                        "surface-container-high": "#2a2a2c",
+                        "secondary-fixed": "#ffdada",
+                        "secondary-container": "#8b1e2d",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#881c2b",
+                        "on-secondary": "#680017",
+                        "outline-variant": "#46464a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-left": "12vw",
+                        "gutter": "32px",
+                        "stack-lg": "96px",
+                        "unit": "8px",
+                        "stack-sm": "16px",
+                        "stack-md": "48px",
+                        "margin-right": "4vw"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-xl": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-xl": ["80px", { "lineHeight": "1.0", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#0B0B0C] text-on-background min-h-screen flex flex-col justify-between selection:bg-secondary-container selection:text-on-secondary">
+    <!-- Custom Surgical Cursor -->
+    <div id="cursor-circle" class="custom-cursor"></div>
+    <div id="cursor-dot" class="custom-cursor-dot"></div>
+<!-- Top Navigation (Login contextual - limited) -->
+<nav class="docked full-width top-0 border-b border-zinc-800 bg-black dark:bg-[#0B0B0C] flex justify-between items-center w-full pl-[12vw] pr-8 h-20">
+<a href="index.html" class="flex items-center gap-4 group">
+        <img src="assets/sfl_logo.png" alt="SFL Logo" class="h-10 w-auto brightness-110 group-hover:scale-105 transition-transform duration-300 lux-float">
+        <div class="font-['Playfair_Display'] text-2xl tracking-[2px] text-zinc-50 font-black">STRAWBERRYFLOW</div>
+    </a>
+<div class="hidden md:flex gap-8">
+<a href="clinic.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">CLINICS</a>
+<a href="methodology.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">METHODOLOGY</a>
+<a href="infrastructure.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">INFRASTRUCTURE</a>
+<a href="demo.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">DEMO</a>
+<a href="enquiry.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">ENQUIRY</a>
+</div>
+<a href="access-portal.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-50 dark:text-zinc-100 nav-link px-4 py-2 border border-zinc-800 premium-btn" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">ACCESS PORTAL</a>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center pt-stack-lg pb-stack-lg mt-24" data-lux-reveal data-lux-type="fade-up">
+<div class="w-full max-w-md mx-auto px-8 py-12 relative fantasy-portal-bg border border-zinc-800/50 rounded-2xl bg-black/40 backdrop-blur-md">
+<div class="flex flex-col items-center gap-stack-sm mb-stack-lg relative">
+<div class="absolute -top-24 -left-16 w-32 h-32 portal-logo-anim z-10 pointer-events-none">
+<img src="assets/sfl_logo.png" alt="SFL Portal Logo" class="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(139,30,45,0.8)] brightness-125">
+</div>
+<h1 data-lux-reveal data-lux-type="fade-up" class="font-label-sm text-label-sm text-on-background uppercase tracking-[0.4em] opacity-90 text-center relative z-20">
+                    CLIENT ACCESS
+                </h1>
+</div>
+<form class="flex flex-col gap-8 w-full">
+<!-- Email Input -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.2em] mb-2" for="email">EMAIL</label>
+<input class="w-full bg-transparent border-t-0 border-l-0 border-r-0 border-b-[0.5px] border-surface-variant text-on-background font-body-md text-body-md focus:ring-0 focus:border-outline placeholder:text-surface-variant/50 pb-2 px-0 rounded-none transition-colors duration-300" id="email" placeholder="your@clinic.com" type="email"/>
+</div>
+<!-- Access Code Input -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.2em] mb-2" for="code">ACCESS CODE</label>
+<input class="w-full bg-transparent border-t-0 border-l-0 border-r-0 border-b-[0.5px] border-surface-variant text-on-background font-body-md text-body-md focus:ring-0 focus:border-outline placeholder:text-surface-variant/50 pb-2 px-0 rounded-none transition-colors duration-300 tracking-[0.5em]" id="code" placeholder="··········" type="password"/>
+</div>
+<!-- Submit Button -->
+<button class="mt-4 bg-[#8B1E2D] hover:bg-[#680017] text-white font-label-sm text-label-sm uppercase tracking-[0.2em] py-4 px-8 w-full flex justify-between items-center transition-colors duration-200 border border-transparent rounded-none premium-btn" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300" type="button">
+<span>ENTER</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Disclaimer -->
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.1em] text-left mt-2 opacity-60" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">
+                    ACCESS CODES ARE ISSUED UPON ONBOARDING.
+                </p>
+</form>
+</div>
+</main>
+<!-- Footer -->
+<footer class="docked full-width border-t border-zinc-800 bg-black dark:bg-[#0B0B0C] flex flex-col md:flex-row justify-between items-center w-full pl-[12vw] pr-12 py-16 gap-8">
+<div class="font-['Playfair_Display'] italic text-zinc-200 text-sm">STRAWBERRYFLOW LABS. SURGICAL PRECISION IN CLINICAL MANAGEMENT.
+    </div>
+<div class="flex gap-8">
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">IMPRINT</a>
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">PRIVACY</a>
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">TERMS OF EXCLUSIVITY</a>
+</div>
+<div class="flex flex-col items-center md:items-end gap-2">
+        <img src="assets/sfl_logo.png" alt="SFL Logo" class="h-12 w-auto mb-2 opacity-80 hover:opacity-100 transition-opacity lux-float">
+        <div class="font-['Playfair_Display'] italic text-zinc-200 text-xl font-bold">StrawberryFlow</div>
+    </div>
+</footer>
+
+    <script src="assets/lux-anim.js"></script>
+</body></html>

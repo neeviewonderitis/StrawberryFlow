@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://strawberryflow.com/index.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://strawberryflow.com/clinic.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://strawberryflow.com/methodology.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://strawberryflow.com/infrastructure.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://strawberryflow.com/demo.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://strawberryflow.com/enquiry.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <priority>0.70</priority>
+  </url>
+</urlset>

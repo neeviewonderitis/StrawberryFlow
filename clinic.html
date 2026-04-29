@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>StrawberryFlow Labs | Clinical Verticals</title>
+    <meta name="description" content="Elite clinical management systems for aesthetic, dental, and surgical practices.">
+    <meta property="og:title" content="StrawberryFlow Labs | Clinical Verticals">
+    <meta property="og:description" content="Elite clinical management systems for aesthetic, dental, and surgical practices.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="assets/sfl_logo.png">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#c8c6c7",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#c8c6c7",
+                        "primary-container": "#0b0b0c",
+                        "inverse-primary": "#5f5e5f",
+                        "surface-container": "#1f1f21",
+                        "tertiary-fixed": "#e2e3e0",
+                        "inverse-on-surface": "#303032",
+                        "outline-variant": "#46464a",
+                        "on-tertiary-fixed-variant": "#454745",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#0a0c0b",
+                        "surface-dim": "#131315",
+                        "tertiary-fixed-dim": "#c6c7c4",
+                        "surface-tint": "#c8c6c7",
+                        "surface-container-highest": "#353437",
+                        "tertiary": "#c6c7c4",
+                        "on-secondary-fixed": "#40000b",
+                        "secondary-container": "#8b1e2d",
+                        "on-secondary": "#680017",
+                        "background": "#131315",
+                        "on-primary-fixed-variant": "#474647",
+                        "on-background": "#e4e2e4",
+                        "surface-container-low": "#1b1b1d",
+                        "on-tertiary-fixed": "#1a1c1b",
+                        "outline": "#919094",
+                        "primary-fixed": "#e5e2e3",
+                        "on-surface-variant": "#c7c6ca",
+                        "inverse-surface": "#e4e2e4",
+                        "on-tertiary": "#2f312f",
+                        "on-secondary-fixed-variant": "#881c2b",
+                        "on-primary-container": "#7b797a",
+                        "surface-variant": "#353437",
+                        "error-container": "#93000a",
+                        "surface-bright": "#39393b",
+                        "on-tertiary-container": "#797a78",
+                        "on-surface": "#e4e2e4",
+                        "on-primary": "#313031",
+                        "surface": "#131315",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#ffdada",
+                        "on-secondary-container": "#ff9da1",
+                        "secondary-fixed-dim": "#ffb3b4",
+                        "secondary": "#ffb3b4",
+                        "on-primary-fixed": "#1c1b1c",
+                        "surface-container-high": "#2a2a2c",
+                        "surface-container-lowest": "#0e0e10"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "32px",
+                        "stack-md": "48px",
+                        "stack-lg": "96px",
+                        "margin-right": "4vw",
+                        "margin-left": "12vw",
+                        "stack-sm": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-xl": ["80px", { "lineHeight": "1.0", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+
+    <link rel="stylesheet" href="assets/lux-style.css">
+</head>
+<body class="bg-[#0B0B0C] text-on-background min-h-screen flex flex-col selection:bg-secondary-container selection:text-white">
+    <!-- Custom Surgical Cursor -->
+    <div id="cursor-circle" class="custom-cursor"></div>
+    <div id="cursor-dot" class="custom-cursor-dot"></div>
+<nav class="docked full-width top-0 border-b border-zinc-800 bg-black dark:bg-[#0B0B0C] flex justify-between items-center w-full pl-[12vw] pr-8 h-20">
+<a href="index.html" class="flex items-center gap-4 group">
+        <img src="assets/sfl_logo.png" alt="SFL Logo" class="h-10 w-auto brightness-110 group-hover:scale-105 transition-transform duration-300 lux-float">
+        <div class="font-['Playfair_Display'] text-2xl tracking-[2px] text-zinc-50 font-black">STRAWBERRYFLOW</div>
+    </a>
+<div class="hidden md:flex gap-8">
+<a href="clinic.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">CLINICS</a>
+<a href="methodology.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">METHODOLOGY</a>
+<a href="infrastructure.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">INFRASTRUCTURE</a>
+<a href="demo.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">DEMO</a>
+<a href="enquiry.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">ENQUIRY</a>
+</div>
+<a href="access-portal.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-50 dark:text-zinc-100 nav-link px-4 py-2 border border-zinc-800 premium-btn" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">ACCESS PORTAL</a>
+</nav>
+<main class="flex-grow pl-margin-left pr-margin-right py-stack-lg flex flex-col gap-stack-lg" data-lux-reveal data-lux-type="fade-up">
+<!-- Intro Section -->
+<section class="max-w-4xl pt-stack-sm" data-lux-reveal data-lux-type="fade-up">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-stack-sm text-shimmer" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">
+                VERTICALS
+            </p>
+<h1 data-lux-reveal data-lux-type="fade-up" class="font-headline-xl text-headline-xl text-on-surface mb-stack-md">
+                Built for clinics that cannot afford to miss.
+            </h1>
+<div class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl opacity-70">
+<p class="mb-4" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">We engineer uncompromising operational frameworks for elite medical practices. Our systems are devoid of decorative features, prioritizing absolute data fidelity and procedural rigidness.</p>
+<p class="" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">Designed strictly for environments where clinical exactness dictates commercial viability and patient outcomes.</p>
+</div>
+</section>
+<!-- Specimen List -->
+<section class="flex flex-col border-t border-outline-variant w-full max-w-5xl" data-lux-reveal data-lux-type="fade-up">
+<!-- Row 01 -->
+<div class="py-stack-md border-b border-outline-variant flex flex-col md:flex-row gap-gutter md:gap-stack-lg items-start">
+<div class="md:w-3/12 flex-shrink-0">
+<span class="font-headline-lg text-headline-lg text-[#8B1E2D]">01</span>
+</div>
+<div class="md:w-9/12 flex flex-col gap-unit pt-2">
+<h2 data-lux-reveal data-lux-type="fade-up" class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest mb-4 text-shimmer"><h2 data-lux-reveal data-lux-type="fade-up" class="font-headline-md text-headline-md mb-4 uppercase cursor-text" spellcheck="false" data-stitch-added-classes="cursor-text" style="--tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; font-size: 32px; font-weight: 500; font-family: &quot;Playfair Display&quot;; line-height: 1.2; animation-duration: 1.5s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running; animation-name: stitch-scan-flash; animation-timeline: auto; animation-range: normal; letter-spacing: normal; background-color: rgb(19, 19, 21); outline: none !important;">aesthetic clinics</h2></h2>
+<div class="font-body-md text-body-md text-on-surface-variant max-w-2xl opacity-70">
+<p class="" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">High-volume dermatological and cosmetic practices requiring immutable patient tracking algorithms. Workflow controls enforce strict consultation-to-aftercare adherence.</p>
+</div>
+</div>
+</div>
+<!-- Row 02 -->
+<div class="py-stack-md border-b border-outline-variant flex flex-col md:flex-row gap-gutter md:gap-stack-lg items-start">
+<div class="md:w-3/12 flex-shrink-0">
+<span class="font-headline-lg text-headline-lg text-on-surface">02</span>
+</div>
+<div class="md:w-9/12 flex flex-col gap-unit pt-2">
+<h2 data-lux-reveal data-lux-type="fade-up" class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest mb-4 text-shimmer"><h2 data-lux-reveal data-lux-type="fade-up" class="font-headline-md text-headline-md mb-4 uppercase cursor-text" spellcheck="false" data-stitch-added-classes="cursor-text" style="--tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; animation-duration: 1.5s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running; animation-name: stitch-scan-flash; animation-timeline: auto; animation-range: normal; letter-spacing: normal; background-color: rgb(19, 19, 21); outline: none !important;">Dental and orthodontics</h2></h2>
+<div class="font-body-md text-body-md text-on-surface-variant max-w-2xl opacity-70">
+<p class="" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">Specialized modularity for complex treatment planning and multi-staged scheduling logic. Financial mapping guarantees zero-loss revenue tracking across extended patient lifecycles.</p>
+</div>
+</div>
+</div>
+<!-- Row 03 -->
+<div class="py-stack-md border-b border-outline-variant flex flex-col md:flex-row gap-gutter md:gap-stack-lg items-start">
+<div class="md:w-3/12 flex-shrink-0">
+<span class="font-headline-lg text-headline-lg text-on-surface">03</span>
+</div>
+<div class="md:w-9/12 flex flex-col gap-unit pt-2">
+<h2 data-lux-reveal data-lux-type="fade-up" class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest mb-4 text-shimmer"><h2 data-lux-reveal data-lux-type="fade-up" class="font-headline-md text-headline-md mb-4 uppercase cursor-text" spellcheck="false" data-stitch-added-classes="cursor-text" style="--tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; animation-duration: 1.5s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running; animation-name: stitch-scan-flash; animation-timeline: auto; animation-range: normal; letter-spacing: normal; background-color: rgb(19, 19, 21); outline: none !important;">Hair Restoration</h2></h2>
+<div class="font-body-md text-body-md text-on-surface-variant max-w-2xl opacity-70">
+<p class="" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">Surgical documentation protocols designed for high-density graft tracking and exact photographic chronologies. Eliminates administrative overhead in high-margin procedures.</p>
+</div>
+</div>
+</div>
+<!-- Row 04 -->
+<div class="py-stack-md border-b border-outline-variant flex flex-col md:flex-row gap-gutter md:gap-stack-lg items-start">
+<div class="md:w-3/12 flex-shrink-0">
+<span class="font-headline-lg text-headline-lg text-on-surface">04</span>
+</div>
+<div class="md:w-9/12 flex flex-col gap-unit pt-2">
+<h2 data-lux-reveal data-lux-type="fade-up" class="font-label-sm text-label-sm text-on-surface uppercase tracking-widest mb-4 text-shimmer"><h2 data-lux-reveal data-lux-type="fade-up" class="font-headline-md text-headline-md mb-4 uppercase cursor-text" spellcheck="false" data-stitch-added-classes="cursor-text" style="--tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; animation-duration: 1.5s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: forwards; animation-play-state: running; animation-name: stitch-scan-flash; animation-timeline: auto; animation-range: normal; letter-spacing: normal; background-color: rgb(19, 19, 21); outline: none !important;">Medical welness and longevity</h2></h2>
+<div class="font-body-md text-body-md text-on-surface-variant max-w-2xl opacity-70">
+<p class="" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">Longitudinal data structuring for recurrent diagnostic testing and personalized therapeutic regimens. Built to synthesize disparate biomarkers into actionable clinical directives.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Note -->
+<section class="pb-stack-md" data-lux-reveal data-lux-type="fade-up">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-[0.2em] opacity-60" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">
+                ADDITIONAL VERTICALS AVAILABLE ON ENQUIRY
+            </p>
+</section>
+</main>
+<footer class="docked full-width border-t border-zinc-800 bg-black dark:bg-[#0B0B0C] flex flex-col md:flex-row justify-between items-center w-full pl-[12vw] pr-12 py-16 gap-8">
+<div class="font-['Playfair_Display'] italic text-zinc-200 text-sm">STRAWBERRYFLOW LABS. SURGICAL PRECISION IN CLINICAL MANAGEMENT.
+    </div>
+<div class="flex gap-8">
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">IMPRINT</a>
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">PRIVACY</a>
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">TERMS OF EXCLUSIVITY</a>
+</div>
+<div class="flex flex-col items-center md:items-end gap-2">
+        <img src="assets/sfl_logo.png" alt="SFL Logo" class="h-12 w-auto mb-2 opacity-80 hover:opacity-100 transition-opacity lux-float">
+        <div class="font-['Playfair_Display'] italic text-zinc-200 text-xl font-bold">StrawberryFlow</div>
+    </div>
+</footer>
+    <script src="assets/lux-anim.js"></script>
+</body>
+</html>

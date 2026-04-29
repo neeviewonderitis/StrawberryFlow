@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>StrawberryFlow Labs | Intake Application</title>
+    <meta name="description" content="Submit your clinical dossier for a comprehensive infrastructure review.">
+    <meta property="og:title" content="StrawberryFlow Labs | Intake Application">
+    <meta property="og:description" content="Submit your clinical dossier for a comprehensive infrastructure review.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="assets/sfl_logo.png">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#39393b",
+                        "on-tertiary-container": "#797a78",
+                        "on-surface": "#e4e2e4",
+                        "surface": "#131315",
+                        "on-error": "#690005",
+                        "on-primary": "#313031",
+                        "secondary-fixed": "#ffdada",
+                        "on-secondary-container": "#ff9da1",
+                        "secondary-fixed-dim": "#ffb3b4",
+                        "secondary": "#ffb3b4",
+                        "on-primary-fixed": "#1c1b1c",
+                        "surface-container-high": "#2a2a2c",
+                        "surface-container-lowest": "#0e0e10",
+                        "on-background": "#e4e2e4",
+                        "on-primary-fixed-variant": "#474647",
+                        "outline": "#919094",
+                        "surface-container-low": "#1b1b1d",
+                        "on-tertiary-fixed": "#1a1c1b",
+                        "primary-fixed": "#e5e2e3",
+                        "on-tertiary": "#2f312f",
+                        "on-secondary-fixed-variant": "#881c2b",
+                        "on-primary-container": "#7b797a",
+                        "on-surface-variant": "#c7c6ca",
+                        "inverse-surface": "#e4e2e4",
+                        "error-container": "#93000a",
+                        "surface-variant": "#353437",
+                        "on-tertiary-fixed-variant": "#454745",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#0a0c0b",
+                        "surface-dim": "#131315",
+                        "surface-tint": "#c8c6c7",
+                        "surface-container-highest": "#353437",
+                        "tertiary-fixed-dim": "#c6c7c4",
+                        "tertiary": "#c6c7c4",
+                        "on-secondary-fixed": "#40000b",
+                        "secondary-container": "#8b1e2d",
+                        "on-secondary": "#680017",
+                        "background": "#131315",
+                        "primary": "#c8c6c7",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed-dim": "#c8c6c7",
+                        "primary-container": "#0b0b0c",
+                        "inverse-primary": "#5f5e5f",
+                        "surface-container": "#1f1f21",
+                        "outline-variant": "#46464a",
+                        "tertiary-fixed": "#e2e3e0",
+                        "inverse-on-surface": "#303032"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "32px",
+                        "margin-left": "12vw",
+                        "stack-sm": "16px",
+                        "stack-md": "48px",
+                        "stack-lg": "96px",
+                        "margin-right": "4vw"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-xl": ["80px", { "lineHeight": "1.0", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Input Styles for Clinical Precision */
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            background-color: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 4px !important;
+            padding: 14px 16px !important;
+            color: rgba(228, 226, 228, 0.9) !important;
+            transition: all 0.4s cubic-bezier(0.21, 0.6, 0.35, 1);
+            width: 100%;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none !important;
+            box-shadow: 0 0 20px rgba(139, 30, 45, 0.1) !important;
+            border-color: #8b1e2d !important;
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        ::placeholder {
+            color: rgba(228, 226, 228, 0.25) !important;
+            font-style: italic;
+        }
+
+        /* Custom red block cursor */
+        input, textarea {
+            caret-color: #8b1e2d;
+        }
+
+        /* Select Arrow Customization */
+        select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+            background-position: right 1rem center !important;
+            background-repeat: no-repeat !important;
+            background-size: 1.5em 1.5em !important;
+            padding-right: 2.5rem !important;
+            -webkit-print-color-adjust: exact !important;
+            appearance: none !important;
+        }
+
+        option {
+            background-color: #131315 !important;
+            color: #e4e2e4 !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="assets/lux-style.css">
+</head>
+<body class="bg-primary-container text-on-background font-body-md antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-white">
+    <!-- Custom Surgical Cursor -->
+    <div id="cursor-circle" class="custom-cursor"></div>
+    <div id="cursor-dot" class="custom-cursor-dot"></div>
+<nav class="docked full-width top-0 border-b border-zinc-800 bg-black dark:bg-[#0B0B0C] flex justify-between items-center w-full pl-[12vw] pr-8 h-20">
+<a href="index.html" class="flex items-center gap-4 group">
+        <img src="assets/sfl_logo.png" alt="SFL Logo" class="h-10 w-auto brightness-110 group-hover:scale-105 transition-transform duration-300 lux-float">
+        <div class="font-['Playfair_Display'] text-2xl tracking-[2px] text-zinc-50 font-black">STRAWBERRYFLOW</div>
+    </a>
+<div class="hidden md:flex gap-8">
+<a href="clinic.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">CLINICS</a>
+<a href="methodology.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">METHODOLOGY</a>
+<a href="infrastructure.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">INFRASTRUCTURE</a>
+<a href="demo.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">DEMO</a>
+<a href="enquiry.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">ENQUIRY</a>
+</div>
+<a href="access-portal.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-50 dark:text-zinc-100 nav-link px-4 py-2 border border-zinc-800 premium-btn" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">ACCESS PORTAL</a>
+</nav>
+<main class="flex-grow pt-[160px] pb-stack-lg flex flex-col w-full" data-lux-reveal data-lux-type="fade-up">
+<!-- Asymmetric Layout Container -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter w-full">
+<!-- Left Empty Columns for Asymmetry (3 columns) -->
+<div class="hidden md:block md:col-span-3 border-r border-surface-container pl-[12vw]">
+<!-- Structural tension column -->
+</div>
+<!-- Content Area (9 columns) -->
+<div class="col-span-1 md:col-span-9 pl-[12vw] md:pl-0 pr-8 md:pr-margin-right max-w-4xl">
+<!-- Header Section -->
+<div class="mb-stack-lg">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-[0.2em] block mb-stack-sm">
+                        INTAKE APPLICATION
+                    </span>
+<h1 data-lux-reveal data-lux-type="fade-up" class="font-headline-xl text-headline-xl text-on-surface mb-stack-md leading-[0.9]">
+                        We work with a small number of clinics at any time.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface opacity-70 max-w-2xl" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">
+                        Submission of this dossier initiates an initial infrastructure review. Incomplete applications are automatically discarded by our system. Precision is required.
+                    </p>
+</div>
+<!-- Form Section -->
+                        <form id="applicationForm" class="space-y-stack-md" action="https://formsubmit.co/ajax/neevmehta125210@gmail.com" method="POST">
+                            <!-- FormSubmit Configuration -->
+                            <input type="hidden" name="_subject" value="New Intake Application - StrawberryFlow Labs">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- Clinic Name -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.1em] mb-4" for="clinic_name">
+                                Clinic Name
+                            </label>
+<input class="font-body-md text-body-md py-3" id="clinic_name" name="clinic_name" placeholder="e.g. Geneva Dental Clinic" required="" type="text"/>
+</div>
+<!-- Role -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.1em] mb-4" for="role">
+                                Role / Title
+                            </label>
+<input class="font-body-md text-body-md py-3" id="role" name="role" placeholder="e.g. Clinical Director" required="" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- Channel -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.1em] mb-4" for="channel">
+                                Primary Channel
+                            </label>
+<select class="font-body-md text-body-md py-3 cursor-pointer appearance-none" id="channel" name="channel" required="">
+<option class="bg-surface text-outline" disabled="" selected="" value="">Select origin</option>
+<option class="bg-surface text-on-surface" value="referral">Private Referral</option>
+<option class="bg-surface text-on-surface" value="organic">Organic Discovery</option>
+<option class="bg-surface text-on-surface" value="partner">Partner Network</option>
+</select>
+</div>
+<!-- Volume -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.1em] mb-4" for="volume">
+                                Patient Volume (Monthly)
+                            </label>
+<select class="font-body-md text-body-md py-3 cursor-pointer appearance-none" id="volume" name="volume" required="">
+<option class="bg-surface text-outline" disabled="" selected="" value="">Select tier</option>
+<option class="bg-surface text-on-surface" value="tier1">Tier 1: &lt; 50</option>
+<option class="bg-surface text-on-surface" value="tier2">Tier 2: 50 - 200</option>
+<option class="bg-surface text-on-surface" value="tier3">Tier 3: 200+</option>
+</select>
+</div>
+</div>
+<!-- Problem Statement -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.1em] mb-4" for="problem">
+                            Operational Bottleneck / Problem Statement
+                        </label>
+<textarea class="font-body-md text-body-md py-3 resize-none" id="problem" name="problem" placeholder="Describe the primary challenge you are looking to solve with surgical precision." required="" rows="4"></textarea>
+</div>
+<!-- Submission Area -->
+<div class="pt-stack-sm flex flex-col items-start">
+<button id="submitBtn" class="bg-[#8B1E2D] text-on-surface font-label-sm text-label-sm tracking-[0.15em] uppercase px-12 py-5 transition-all duration-300 hover:bg-error-container premium-btn" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300" type="submit">
+                            <span id="btnText">SUBMIT APPLICATION →</span>
+                        </button>
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-[0.1em] mt-6 block">
+                            QUALIFYING APPLICATIONS RECEIVE A CALENDAR LINK WITHIN 24 HOURS.
+                        </span>
+</div>
+</form>
+</div>
+</div>
+</main>
+<footer class="docked full-width border-t border-zinc-800 bg-black dark:bg-[#0B0B0C] flex flex-col md:flex-row justify-between items-center w-full pl-[12vw] pr-12 py-16 gap-8">
+<div class="font-['Playfair_Display'] italic text-zinc-200 text-sm">STRAWBERRYFLOW LABS. SURGICAL PRECISION IN CLINICAL MANAGEMENT.
+    </div>
+<div class="flex gap-8">
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">IMPRINT</a>
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">PRIVACY</a>
+<a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">TERMS OF EXCLUSIVITY</a>
+</div>
+<div class="flex flex-col items-center md:items-end gap-2">
+        <img src="assets/sfl_logo.png" alt="SFL Logo" class="h-12 w-auto mb-2 opacity-80 hover:opacity-100 transition-opacity lux-float">
+        <div class="font-['Playfair_Display'] italic text-zinc-200 text-xl font-bold">StrawberryFlow</div>
+    </div>
+</footer>
+    <script src="assets/lux-anim.js"></script>
+    <script>
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            
+            // Premium submission sequence
+            btn.disabled = true;
+            btnText.textContent = 'VALIDATING CLINICAL DOSSIER...';
+            btn.classList.add('opacity-70');
+            
+            // Collect data
+            const formData = new FormData(form);
+            
+            // Start AJAX submission
+            const submissionPromise = fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            setTimeout(() => {
+                btnText.textContent = 'SECURE TRANSMISSION IN PROGRESS...';
+                
+                submissionPromise.then(response => {
+                    setTimeout(() => {
+                        btnText.textContent = 'APPLICATION SUBMITTED';
+                        btn.classList.remove('bg-[#8B1E2D]');
+                        btn.classList.add('bg-green-800');
+                        
+                        setTimeout(() => {
+                            window.location.href = 'thank-you.html';
+                        }, 800);
+                    }, 1000);
+                }).catch(error => {
+                    console.error('Submission error:', error);
+                    btnText.textContent = 'CONNECTION ERROR. RETRYING...';
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btnText.textContent = 'SUBMIT APPLICATION →';
+                        btn.classList.remove('opacity-70');
+                    }, 2000);
+                });
+            }, 1500);
+        });
+    </script>
+    <script src="assets/lux-anim.js"></script>
+</body>
+</html>

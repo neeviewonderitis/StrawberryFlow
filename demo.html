@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strawberryflow Labs | Platform Demonstration & AI Walkthrough</title>
+    <meta name="description" content="Watch the StrawberryFlow Labs AI engine in action. See how our surgical precision automation qualifies leads and manages clinical lifecycles.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://strawberryflow.com/demo.html">
+    <meta property="og:title" content="Platform Demonstration | StrawberryFlow Labs">
+    <meta property="og:description" content="Watch our AI automation engine qualify leads with surgical precision.">
+    <meta property="og:image" content="https://strawberryflow.com/assets/demo_video_poster.png">
+
+    <link rel="icon" type="image/png" href="assets/sfl_logo.png">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: "#131315",
+                        "on-background": "#e4e2e4",
+                        surface: "#131315",
+                        "on-surface": "#e4e2e4",
+                        "surface-variant": "#353437",
+                        "on-surface-variant": "#c7c6ca",
+                        primary: "#c8c6c7",
+                        "on-primary": "#313031",
+                        "primary-container": "#0b0b0c",
+                        "on-primary-container": "#7b797a",
+                        secondary: "#ffb3b4",
+                        "on-secondary": "#680017",
+                        "secondary-container": "#8b1e2d",
+                        "on-secondary-container": "#ff9da1",
+                        outline: "#919094",
+                        "outline-variant": "#46464a",
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-xl": ["Playfair Display"],
+                        "body-lg": ["Inter"]
+                    },
+                    spacing: {
+                        "stack-sm": "16px",
+                        "unit": "8px",
+                        "stack-lg": "96px",
+                        "margin-right": "4vw",
+                        "margin-left": "12vw",
+                        "gutter": "32px",
+                        "stack-md": "48px"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(139, 30, 45, 0.2);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .video-poster {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(139, 30, 45, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(139, 30, 45, 0.5);
+            z-index: 10;
+        }
+
+        .video-container:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(139, 30, 45, 1);
+        }
+
+        .video-container:hover .video-poster {
+            transform: scale(1.02);
+        }
+
+        .play-icon {
+            color: white;
+            font-size: 36px;
+            margin-left: 4px;
+        }
+        
+        .fake-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: black;
+            align-items: center;
+            justify-content: center;
+            color: #8b1e2d;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.2em;
+        }
+        
+        .is-playing .video-poster, .is-playing .play-button {
+            display: none;
+        }
+        
+        .is-playing .fake-video {
+            display: flex;
+        }
+    </style>
+
+    <link rel="stylesheet" href="assets/lux-style.css">
+</head>
+
+<body class="bg-[#0B0B0C] text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-white">
+    <!-- Custom Surgical Cursor -->
+    <div id="cursor-circle" class="custom-cursor"></div>
+    <div id="cursor-dot" class="custom-cursor-dot"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky z-50 top-0 border-b border-zinc-800 bg-black/80 dark:bg-[#0B0B0C]/80 backdrop-blur-md flex justify-between items-center w-full pl-6 md:pl-[12vw] pr-4 md:pr-8 h-20">
+        <a href="index.html" class="flex items-center gap-4 group">
+            <img src="assets/sfl_logo.png" alt="SFL Logo" class="h-10 w-auto brightness-110 group-hover:scale-105 transition-transform duration-300 lux-float">
+            <div class="flex flex-col">
+                <div class="font-['Playfair_Display'] text-xl md:text-2xl tracking-[2px] text-zinc-50 font-black leading-none">STRAWBERRYFLOW</div>
+                <div class="flex items-center gap-2 mt-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-[pulse_2s_ease-in-out_infinite] shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
+                    <span class="font-['Inter'] text-[8px] uppercase tracking-widest text-zinc-400">System Online</span>
+                </div>
+            </div>
+        </a>
+        <div class="hidden md:flex gap-8">
+            <a href="clinic.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">CLINICS</a>
+            <a href="methodology.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">METHODOLOGY</a>
+            <a href="infrastructure.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">INFRASTRUCTURE</a>
+            <a href="demo.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-50 border-b border-secondary-container pb-1 nav-link premium-btn" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">DEMO</a>
+            <a href="enquiry.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-400 hover:text-zinc-50 nav-link" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">ENQUIRY</a>
+        </div>
+        <a href="access-portal.html" class="font-['Inter'] uppercase tracking-[0.2em] text-[11px] font-bold text-zinc-50 dark:text-zinc-100 nav-link px-4 py-2 border border-zinc-800 premium-btn" data-lux-reveal data-lux-type="scale-in" data-lux-delay="300">ACCESS PORTAL</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-[120px] pb-stack-lg flex flex-col w-full" data-lux-reveal data-lux-type="fade-up">
+        
+        <!-- Header -->
+        <section class="pl-[12vw] pr-[12vw] md:pr-margin-right mb-stack-md max-w-5xl">
+            <span class="font-label-sm text-label-sm text-outline uppercase tracking-[0.2em] block mb-stack-sm text-shimmer">
+                SYSTEM DEMONSTRATION
+            </span>
+            <h1 data-lux-reveal data-lux-type="fade-up" class="font-headline-xl text-[48px] md:text-[64px] lg:text-[80px] text-on-surface mb-stack-sm leading-[1.0] tracking-tight">
+                See the architecture <span class="italic text-secondary-container">in action.</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface opacity-70 max-w-2xl" data-lux-reveal data-lux-type="fade-up" data-lux-delay="200">
+                Watch a live simulation of the StrawberryFlow conversational AI engine handling complex patient inquiries, qualifying leads, and seamlessly syncing with clinic calendars.
+            </p>
+        </section>
+
+        <!-- Video Player -->
+        <section class="pl-[12vw] pr-[12vw] mb-stack-lg" data-lux-reveal data-lux-type="fade-up" data-lux-delay="300">
+            <div class="video-container premium-btn" id="demoVideo">
+                <img src="assets/demo_video_poster.png" alt="Demo Video Poster" class="video-poster">
+                <div class="play-button">
+                    <span class="material-symbols-outlined play-icon">play_arrow</span>
+                </div>
+                <div class="fake-video" id="videoSim">
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-[48px] mb-4 text-[#8B1E2D] animate-pulse">memory</span>
+                        <div>SIMULATING CLINICAL DATA PIPELINE...</div>
+                        <div class="text-zinc-500 text-[10px] mt-2 font-mono">CONNECTION ESTABLISHED.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mt-4 px-2 opacity-60">
+                <span class="font-['Inter'] text-[10px] tracking-widest uppercase">ENCRYPTED STREAM</span>
+                <span class="font-['Inter'] text-[10px] tracking-widest uppercase text-[#8B1E2D]">LIVE FEED</span>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="pl-[12vw] pr-[12vw] py-stack-md border-t border-zinc-800/50 bg-black/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-8" data-lux-reveal data-lux-type="fade-up">
+            <div class="max-w-xl">
+                <h2 class="font-headline-md text-3xl mb-4 text-white">Ready for surgical precision?</h2>
+                <p class="font-body-md text-zinc-400">
+                    We only partner with a select number of clinics. Submit your operational dossier to begin the infrastructure review process.
+                </p>
+            </div>
+            <div>
+                <a href="intake-application.html" class="bg-[#8B1E2D] hover:bg-[#680017] text-white font-label-sm text-[11px] uppercase tracking-[0.2em] py-5 px-10 flex justify-between items-center transition-colors duration-200 border border-transparent rounded-none premium-btn whitespace-nowrap">
+                    <span class="mr-4">SUBMIT APPLICATION</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="docked full-width border-t border-zinc-800 bg-black dark:bg-[#0B0B0C] flex flex-col md:flex-row justify-between items-center w-full pl-[12vw] pr-12 py-16 gap-8">
+        <div class="font-['Playfair_Display'] italic text-zinc-200 text-sm">STRAWBERRYFLOW LABS. SURGICAL PRECISION IN CLINICAL MANAGEMENT.</div>
+        <div class="flex gap-8">
+            <a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">IMPRINT</a>
+            <a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">PRIVACY</a>
+            <a class="font-['Inter'] uppercase text-[10px] tracking-[0.15em] text-zinc-600 hover:text-[#8B1E2D]" href="access-portal.html">TERMS OF EXCLUSIVITY</a>
+        </div>
+        <div class="flex flex-col items-center md:items-end gap-2">
+            <img src="assets/sfl_logo.png" alt="SFL Logo" class="h-12 w-auto mb-2 opacity-80 hover:opacity-100 transition-opacity lux-float">
+            <div class="font-['Playfair_Display'] italic text-zinc-200 text-xl font-bold">StrawberryFlow</div>
+        </div>
+    </footer>
+
+    <script src="assets/lux-anim.js"></script>
+    <script>
+        // Simple script to toggle the "video" state
+        document.getElementById('demoVideo').addEventListener('click', function() {
+            this.classList.add('is-playing');
+            
+            // Revert after 10 seconds for demo purposes
+            setTimeout(() => {
+                this.classList.remove('is-playing');
+            }, 10000);
+        });
+    </script>
+</body>
+</html>
