@@ -290,6 +290,16 @@
                     
                     <!-- The Strawberry Wrapper -->
                     <div id="interactive-strawberry-wrapper" class="relative z-10 will-change-transform w-[240px] h-[240px] md:w-[330px] md:h-[330px]">
+                        
+                        <!-- SVG Mask Definition -->
+                        <svg width="0" height="0" class="absolute pointer-events-none">
+                            <defs>
+                                <mask id="svg-strawberry-mask">
+                                    <image href="assets/sfl_logo.png" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" />
+                                </mask>
+                            </defs>
+                        </svg>
+
                          <!-- Main Strawberry Image -->
                         <img alt="Jeweled Strawberry Logo" id="interactive-strawberry" draggable="false"
                             class="object-contain strawberry-glow w-full h-full select-none pointer-events-none"
@@ -297,9 +307,11 @@
                             src="assets/sfl_logo.png" />
                             
                         <!-- Specular Highlight Overlay -->
-                        <div id="specular-highlight" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500 strawberry-mask" 
+                        <div id="specular-highlight" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500" 
                              style="background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.2) 55%, transparent 100%); 
-                                    mix-blend-mode: overlay;">
+                                    mix-blend-mode: overlay;
+                                    -webkit-mask: url(#svg-strawberry-mask);
+                                    mask: url(#svg-strawberry-mask);">
                         </div>
                     </div>
                 </div>
