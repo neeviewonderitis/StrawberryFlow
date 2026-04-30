@@ -4,29 +4,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursorDot = document.getElementById('cursor-dot');
     
     if (cursorCircle && cursorDot) {
-        let mouseX = 0;
-        let mouseY = 0;
-        let circleX = 0;
-        let circleY = 0;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let circleX = mouseX;
+        let circleY = mouseY;
+        
+        let targetScale = 1;
+        let currentScale = 1;
+        let targetRotate = 45; // Start as a diamond
+        let currentRotate = 45;
         
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            cursorDot.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
+            // The dot is a diamond too
+            cursorDot.style.transform = `translate(${mouseX - 2}px, ${mouseY - 2}px) rotate(45deg)`;
         });
 
         const updateCursor = () => {
-            circleX += (mouseX - circleX) * 0.2;
-            circleY += (mouseY - circleY) * 0.2;
-            cursorCircle.style.transform = `translate(${circleX - 20}px, ${circleY - 20}px)`;
+            // Snappier follow
+            circleX += (mouseX - circleX) * 0.3;
+            circleY += (mouseY - circleY) * 0.3;
+            
+            // Smooth scale & rotate
+            currentScale += (targetScale - currentScale) * 0.2;
+            currentRotate += (targetRotate - currentRotate) * 0.15;
+            
+            cursorCircle.style.transform = `translate(${circleX - 12}px, ${circleY - 12}px) rotate(${currentRotate}deg) scale(${currentScale})`;
             requestAnimationFrame(updateCursor);
         };
         requestAnimationFrame(updateCursor);
 
-        const interactiveElements = document.querySelectorAll('a, button, .premium-btn, input, textarea, select');
+        const interactiveElements = document.querySelectorAll('a, button, .premium-btn, input, textarea, select, [role="button"]');
         interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => cursorCircle.classList.add('cursor-hover'));
-            el.addEventListener('mouseleave', () => cursorCircle.classList.remove('cursor-hover'));
+            el.addEventListener('mouseenter', () => {
+                cursorCircle.classList.add('cursor-hover');
+                targetScale = 1.4;
+                targetRotate = 135; // Spin 90deg on hover
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorCircle.classList.remove('cursor-hover');
+                targetScale = 1;
+                targetRotate = 45;
+            });
         });
     }
 
