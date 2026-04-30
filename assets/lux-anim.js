@@ -4,15 +4,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursorDot = document.getElementById('cursor-dot');
     
     if (cursorCircle && cursorDot) {
+        let mouseX = 0;
+        let mouseY = 0;
+        let circleX = 0;
+        let circleY = 0;
+        
         document.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            
-            cursorDot.style.transform = `translate(${posX - 3}px, ${posY - 3}px)`;
-            setTimeout(() => {
-                cursorCircle.style.transform = `translate(${posX - 20}px, ${posY - 20}px)`;
-            }, 50);
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
         });
+
+        const updateCursor = () => {
+            circleX += (mouseX - circleX) * 0.2;
+            circleY += (mouseY - circleY) * 0.2;
+            cursorCircle.style.transform = `translate(${circleX - 20}px, ${circleY - 20}px)`;
+            requestAnimationFrame(updateCursor);
+        };
+        requestAnimationFrame(updateCursor);
 
         const interactiveElements = document.querySelectorAll('a, button, .premium-btn, input, textarea, select');
         interactiveElements.forEach(el => {
@@ -48,16 +57,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Handle Parallax on Mouse Move for specific elements
-    document.addEventListener('mousemove', (e) => {
-        const parallaxItems = document.querySelectorAll('[data-lux-parallax]');
-        const mouseX = e.clientX / window.innerWidth - 0.5;
-        const mouseY = e.clientY / window.innerHeight - 0.5;
+    const parallaxItems = document.querySelectorAll('[data-lux-parallax]');
+    if (parallaxItems.length > 0) {
+        let pMouseX = 0;
+        let pMouseY = 0;
+        let isParallaxTicking = false;
 
-        parallaxItems.forEach(item => {
-            const speed = item.getAttribute('data-lux-parallax') || 20;
-            const x = mouseX * speed;
-            const y = mouseY * speed;
-            item.style.transform = `translate(${x}px, ${y}px)`;
+        document.addEventListener('mousemove', (e) => {
+            pMouseX = e.clientX / window.innerWidth - 0.5;
+            pMouseY = e.clientY / window.innerHeight - 0.5;
+            
+            if (!isParallaxTicking) {
+                requestAnimationFrame(() => {
+                    parallaxItems.forEach(item => {
+                        const speed = item.getAttribute('data-lux-parallax') || 20;
+                        const x = pMouseX * speed;
+                        const y = pMouseY * speed;
+                        item.style.transform = `translate(${x}px, ${y}px)`;
+                    });
+                    isParallaxTicking = false;
+                });
+                isParallaxTicking = true;
+            }
         });
-    });
+    }
 });

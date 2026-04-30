@@ -669,14 +669,26 @@
             let currentRotateX = 0;
             let currentRotateY = 0;
 
+            let containerRect = container.getBoundingClientRect();
+            let containerWidth = container.offsetWidth;
+            let containerHeight = container.offsetHeight;
+
+            const updateContainerDimensions = () => {
+                containerRect = container.getBoundingClientRect();
+                containerWidth = container.offsetWidth;
+                containerHeight = container.offsetHeight;
+            };
+
+            window.addEventListener('resize', updateContainerDimensions);
+
             window.addEventListener('scroll', () => {
                 scrollY = window.pageYOffset;
-            });
+                updateContainerDimensions();
+            }, { passive: true });
 
             container.addEventListener('mousemove', (e) => {
-                const rect = container.getBoundingClientRect();
-                mouseX = e.clientX - rect.left - rect.width / 2;
-                mouseY = e.clientY - rect.top - rect.height / 2;
+                mouseX = e.clientX - containerRect.left - containerWidth / 2;
+                mouseY = e.clientY - containerRect.top - containerHeight / 2;
                 isHovering = true;
             });
 
@@ -691,6 +703,7 @@
             });
 
             container.addEventListener('mouseenter', () => {
+                updateContainerDimensions();
                 if(glowCore) glowCore.style.opacity = '0.7';
                 if(nebulaAtmos) nebulaAtmos.style.opacity = '0.5';
                 if(stars) stars.style.opacity = '0.8';
@@ -705,8 +718,8 @@
                     targetX = mouseX * 0.1; 
                     targetY = mouseY * 0.1;
                     
-                    let tiltX = -(mouseY / (container.offsetHeight / 2)) * 8.5; 
-                    let tiltY = (mouseX / (container.offsetWidth / 2)) * 8.5;
+                    let tiltX = -(mouseY / (containerHeight / 2)) * 8.5; 
+                    let tiltY = (mouseX / (containerWidth / 2)) * 8.5;
                     
                     currentX += (targetX - currentX) * 0.1;
                     currentY += (targetY - currentY) * 0.1;
