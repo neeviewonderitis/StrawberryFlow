@@ -236,7 +236,7 @@ a, button, [role="button"], input, select, textarea, .premium-btn, .nav-link {
 
 .mobile-nav-item {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
     color: #e4e2e4;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -270,10 +270,21 @@ a, button, [role="button"], input, select, textarea, .premium-btn, .nav-link {
 }
 
 .strawberry-mask {
-    -webkit-mask-image: url('sfl_logo.png');
+    -webkit-mask-image: url('/assets/sfl_logo.png');
     -webkit-mask-size: contain;
     -webkit-mask-repeat: no-repeat;
-    mask-image: url('sfl_logo.png');
+    -webkit-mask-position: center;
+    mask-image: url('/assets/sfl_logo.png');
     mask-size: contain;
     mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.elegant-star {
+    clip-path: polygon(50% 0%, 55% 45%, 100% 50%, 55% 55%, 50% 100%, 45% 55%, 0% 50%, 45% 45%);
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(210, 45, 120, 0.4) 100%);
+}
+
+.elegant-star.gold {
+    background: linear-gradient(135deg, rgba(255, 230, 150, 1) 0%, rgba(212, 175, 55, 0.8) 100%);
 }
